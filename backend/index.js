@@ -44,6 +44,34 @@ app.post("/api/trademe-listing", async (req, res) => {
   }
 });
 
+app.patch("/api/trademe-listing/:_id", async (req, res) => {
+  try {
+    const updatedListing = await TradeMe.findByIdAndUpdate(
+      req.params._id,
+      req.body,
+      { new: true }
+    );
+    res.status(200).json({
+      message: "Listing updated successfully",
+      data: updatedListing,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating listing", error: error });
+  }
+});
+
+app.delete("/api/trademe-listing/:_id", async (req, res) => {
+  try {
+    const deletedListing = await TradeMe.findByIdAndDelete(req.params._id);
+    res.status(200).json({
+      message: "Listing deleted successfully",
+      data: deletedListing,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting listing", error: error });
+  }
+});
+
 app.all("*", (req, res) => {
   res.status(404).json({ message: "Route not found" });
 }); // catch all route for any request that doesn't match the routes above
