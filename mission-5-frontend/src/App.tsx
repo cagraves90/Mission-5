@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
+import Footer from "./components/Footer";
+import TopNavBar from "./components/TopNavBar";
+
 function App() {
   const [listing, setListing] = useState<any>(null);
 
@@ -15,6 +18,7 @@ function App() {
 
   return (
     <>
+      <TopNavBar />
       <h1>Hello world!</h1>
       <ul>
         {listing?.map((item: any, index: any) => (
@@ -29,6 +33,7 @@ function App() {
           </li>
         ))}
       </ul>
+      <Footer />
     </>
   );
 }
