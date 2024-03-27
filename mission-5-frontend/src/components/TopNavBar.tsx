@@ -22,8 +22,8 @@ const TopNavBar = () => {
 
   return (
     <div>
-      <div className="flex flex-row">
-        <div className="flex-none w-1/4 h-1/4 pb-1 pt-10">
+      <div className="flex flex-row bg-[#f5f3f3]">
+        <div className="flex-none w-1/4 h-1/4 pb-1 pt-6">
           <img src="./images/TradeMe_Image.png" alt="Trademe Logo" />
         </div>
         <div className="flex basis-1/2 items-end">
@@ -59,7 +59,12 @@ const TopNavBar = () => {
               <FontAwesomeIcon icon={faScaleUnbalanced} className="pr-2" />
               Compare Listings
             </div>
-            <div className="text-[#943900] px-2 hover:cursor-pointer">
+            <div className="flex text-[#943900] px-2 hover:cursor-pointer">
+              <img
+                className="w-6 h-6 mr-1"
+                src="./images/TradeMeMagnetIcon.png"
+                alt="Magnet Icon"
+              />
               Watchlist
             </div>
             {/* ------------------------------------ Menu Button ------------------------------------------------------- */}
@@ -94,8 +99,6 @@ const TopNavBar = () => {
                 </Menu>
               </Dropdown>
             </div>
-
-            {/* // ---------------------------- Menu Button -------------------------------------------------------  */}
           </div>
         </div>
       </div>
@@ -116,6 +119,24 @@ const TopNavBar = () => {
           </div>
         </div>
         <div className="flex items-start basis-1/3 "></div>
+      </div>
+      {/* ------------------------------------- Links below the searchbar ----------------------------------  */}
+      <div className="flex hover:cursor-pointer">
+        <div className="flex justify-center w-1/5 text-[#d93a3f] border-t-4 border-[#d93a3f] hover:bg-[#f5f3f3]">
+          Marketplace
+        </div>
+        <div className="flex justify-center w-1/5 text-[#f3632d] border-t-4 border-[#f3632d] hover:bg-[#f5f3f3]">
+          Job
+        </div>
+        <div className="flex justify-center w-1/5 text-[#5f6f88] border-t-4 border-[#5f6f88] hover:bg-[#f5f3f3]">
+          Motor
+        </div>
+        <div className="flex justify-center w-1/5 text-[#29a754] border-t-4 border-[#29a754] hover:bg-[#f5f3f3]">
+          Property
+        </div>
+        <div className="flex justify-center w-1/5 text-[#555555] border-t-4 border-[#555555] hover:bg-[#f5f3f3]">
+          Services
+        </div>
       </div>
     </div>
   );
