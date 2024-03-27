@@ -11,6 +11,7 @@ import { MenuItem } from "@mui/base/MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const TopNavBar = () => {
   const createHandleMenuClick = (menuItem: string) => {
@@ -98,18 +99,25 @@ const TopNavBar = () => {
           </div>
         </div>
       </div>
-      {/* Search bar ------------------------------------------------------- */}
-      <div className="bg-yellow-400 h-24 flex justify-center">
-        Hi there I'm the search bar
+      {/* -------------------------------------- Search bar ------------------------------------------------------- */}
+      <div className="bg-yellow-400 h-19 flex justify-center">
+        <div className="flex basis-1/3 h-14 py-2 relative mx-auto text-gray-600">
+          <div className="flex items-center w-full mx-10 rounded bg-white">
+            <FontAwesomeIcon icon={faMagnifyingGlass} className="pl-2" />
+            <input
+              className=" w-full border-none bg-transparent px-4 py-1 text-gray-400 outline-none focus:outline-none "
+              type="search"
+              name="search"
+              placeholder="Search Listing with Keywords"
+            />
+            <button type="submit" className=" m-2 rounded bg-white px-4 py-2">
+              Search
+            </button>
+          </div>
+        </div>
+        <div className="flex items-start basis-1/3 "></div>
       </div>
     </div>
-
-    //   {/* Search bar ------------------------------------------------------- */}
-    //   <div className="bg-yellow-400 h-24 flex justify-center">
-    //     Hi there I'm the search bar
-    //   </div>
-    // </div>
-    // </div>
   );
 };
 export default TopNavBar;
