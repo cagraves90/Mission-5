@@ -13,21 +13,64 @@ const TrademeListingMain = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-white flex justify-center items-center">
-      <h1 className="text-xl">Hello world!</h1>
-      <ul>
-        {listing?.map((item: any, index: any) => (
-          <li key={index}>
-            <h2>{item.listingName}</h2>
-            <p>{item.buyItNowPrice}</p>
-            <p>{item.startingBidPrice}</p>
-            <p>{item.listingDetails}</p>
-            <p>{item.listingDescription}</p>
-            <p>{item.shippingOptions}</p>
-            <p>{item.paymentOptions}</p>
+    <div className="h-screen bg-[#f5f3f3] ml-10 mt-10 static">
+      <div className="grid-cols-2 h-1/2 w-1/6 bg-white">
+        <img
+          src="./images/TradeMe_BlueCompare.png"
+          alt=""
+          className="z-10 w-20 h-20 absolute"
+        />
+        <div className="top-0 right-0 flex justify-end">
+          <img
+            src="./images/TradeMe_Magnet.png"
+            alt="Trade Me Magnet Icon"
+            className="z-10 w-20 h-20 absolute"
+          />
+        </div>
+        <div className="flex justify-center">
+          <img
+            src="./images/TradeMe_PaddleChair.png"
+            alt="Trademe Listing"
+            className="w-80 h-80"
+          />
+        </div>
+        <ul>
+          <li>
+            <p>Auckland</p>
+            <p>Closes Sun 15 Jun 2024</p>
+            <h2>Paddle Chair</h2>
+            <p>$2950</p>
+            <p>$1650</p>
+            <p>
+              Designed by the talented Danish designer Hans. J. Wegner, This is
+              a handmade classic of comfort and craft. Gracefully sculpted. A
+              one-piece base construction for strength. Woven skillfully back
+              and front of durable paper yarn, the Paddle Chair is remarkably
+              comfortable. An investment that will gain value over time.
+            </p>
           </li>
-        ))}
-      </ul>
+          {/* {listing?.map((item: any, index: any) => ( */}
+          {/* <li key={index}>
+              <p>{item.listingArea}Auckland</p>
+              <p>{item.listingCloseTime}Closes Sun 15 Jun 2024</p>
+              <h2>{item.listingName}Paddle Chair</h2>
+              <p>{item.buyItNowPrice}$2950</p>
+              <p>{item.startingBidPrice}$1650</p>
+              <p>
+                {item.listingDetails}Designed by the talented Danish designer
+                Hans. J. Wegner, This is a handmade classic of comfort and
+                craft. Gracefully sculpted. A one-piece base construction for
+                strength. Woven skillfully back and front of durable paper yarn,
+                the Paddle Chair is remarkably comfortable. An investment that
+                will gain value over time.
+              </p> */}
+          {/* <p>{item.listingDescription}</p> */}
+          {/* <p>{item.shippingOptions}</p> */}
+          {/* <p>{item.paymentOptions}</p> */}
+          {/* </li> */}
+          {/* ))} */}
+        </ul>
+      </div>
     </div>
   );
 };
