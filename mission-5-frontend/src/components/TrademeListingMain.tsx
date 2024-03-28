@@ -36,18 +36,31 @@ const TrademeListingMain = () => {
         </div>
         <ul>
           <li>
-            <p>Auckland</p>
-            <p>Closes Sun 15 Jun 2024</p>
-            <h2>Paddle Chair</h2>
-            <p>$2950</p>
-            <p>$1650</p>
-            <p>
+            <div className="flex text-sm">
+              <p className="w-1/2 pl-1 pb-3">Auckland</p>
+              <div className="w-1/2 flex justify-end pr-1">
+                <p>Closes Sun 15 Jun 2024</p>
+              </div>
+            </div>
+            <h2 className="text-lg pb-2">Paddle Chair</h2>
+
+            <p className="pb-7">
               Designed by the talented Danish designer Hans. J. Wegner, This is
               a handmade classic of comfort and craft. Gracefully sculpted. A
               one-piece base construction for strength. Woven skillfully back
               and front of durable paper yarn, the Paddle Chair is remarkably
               comfortable. An investment that will gain value over time.
             </p>
+            <div className="flex">
+              <div className="w-1/2 pl-1">
+                <p className="text-2xl">$1650</p>
+                <p className="text-sm">No Reserve</p>
+              </div>
+              <div className="w-1/2 flex flex-col items-end pr-1">
+                <p className="text-2xl">$2950</p>
+                <p className="text-sm">Buy Now</p>
+              </div>
+            </div>
           </li>
           {/* {listing?.map((item: any, index: any) => ( */}
           {/* <li key={index}>
