@@ -130,13 +130,13 @@ const TradeMeListingItemContainer = () => {
                 >
                   {selectedMagnetIcon ? (
                     <img
-                      src="./images/TradeMe_Check.png"
+                      src="./images/TradeMe_Magnet.png"
                       alt=""
                       className="z-10 w-20 h-20 absolute"
                     />
                   ) : (
                     <img
-                      src="./images/TradeMe_Magnet.png"
+                      src="./images/TradeMe_Check.png"
                       alt=""
                       className="z-10 w-20 h-20 absolute"
                     />
