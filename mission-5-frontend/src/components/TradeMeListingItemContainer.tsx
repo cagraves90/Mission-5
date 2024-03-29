@@ -113,12 +113,11 @@ const TradeMeListingItemContainer = () => {
       <div className="text-4xl pb-6">WatchList / 6 Listing(s)</div>
       <div className="flex">
         <div className="flex flex-col mt-96">
-          {selectedCompareButtons ? (
-            <div className="w-72 h-72"></div>
-          ) : (
+          {selectedCompareButtons.length > 0 ? (
             <div>
               <p className="text-lg">
-                You have {handleCompareClick.length} item/s selected to compare!
+                You have {selectedCompareButtons.length} item/s selected to
+                compare!
               </p>
               <img
                 src="./images/TradeMeKiwiCompare.png"
@@ -126,6 +125,8 @@ const TradeMeListingItemContainer = () => {
                 className="w-40 h-40"
               />
             </div>
+          ) : (
+            <div className="w-72 h-72"></div>
           )}
         </div>
         <div className="pl-30 grid grid-cols-2">
