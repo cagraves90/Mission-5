@@ -67,15 +67,38 @@ const TradeMeListingItemContainer = () => {
 
   const [listing, setListing] = useState<any>(null);
 
-  const [selectedCompareIcon, setSelectedCompareIcon] = useState<any>(null);
-  const [selectedMagnetIcon, setSelectedMagnetIcon] = useState<any>(null);
+  const [selectedCompareButtons, setSelectedCompareButtons] = useState<
+    number[]
+  >([]);
 
-  const handleCompareClick = () => {
-    setSelectedCompareIcon(!selectedCompareIcon);
+  const [selectedMagnetButtons, setSelectedMagnetButtons] = useState<number[]>(
+    []
+  );
+
+  const handleCompareClick = (index: number) => {
+    setSelectedCompareButtons((prevState) => {
+      // If the index is already in the array, remove it
+      if (prevState.includes(index)) {
+        return prevState.filter((i) => i !== index);
+      }
+      // Otherwise, add it
+      else {
+        return [...prevState, index];
+      }
+    });
   };
 
-  const handleMagnetClick = () => {
-    setSelectedMagnetIcon(!selectedMagnetIcon);
+  const handleMagnetClick = (index: number) => {
+    setSelectedMagnetButtons((prevState) => {
+      // If the index is already in the array, remove it
+      if (prevState.includes(index)) {
+        return prevState.filter((i) => i !== index);
+      }
+      // Otherwise, add it
+      else {
+        return [...prevState, index];
+      }
+    });
   };
 
   useEffect(() => {
@@ -90,12 +113,12 @@ const TradeMeListingItemContainer = () => {
       <div className="text-4xl pb-6">WatchList / 6 Listing(s)</div>
       <div className="flex">
         <div className="flex flex-col mt-96">
-          {selectedCompareIcon ? (
+          {selectedCompareButtons ? (
             <div className="w-72 h-72"></div>
           ) : (
             <div>
               <p className="text-lg">
-                You have {fakeListing.length} item/s selected to compare!
+                You have {handleCompareClick.length} item/s selected to compare!
               </p>
               <img
                 src="./images/TradeMeKiwiCompare.png"
@@ -107,17 +130,17 @@ const TradeMeListingItemContainer = () => {
         </div>
         <div className="pl-30 grid grid-cols-2">
           {fakeListing.map((item: any, index: any) => (
-            <div className="mx-20 my-20 w-96 bg-white">
-              <button onClick={handleCompareClick}>
-                {selectedCompareIcon ? (
+            <div className="mx-20 my-5 w-96 bg-white">
+              <button onClick={() => handleCompareClick(index)}>
+                {selectedCompareButtons.includes(index) ? (
                   <img
-                    src="./images/TradeMe_BlueCompare.png"
+                    src="./images/TradeMe_BlueCheck.png"
                     alt=""
                     className="z-10 w-20 h-20 absolute"
                   />
                 ) : (
                   <img
-                    src="./images/TradeMe_BlueCheck.png"
+                    src="./images/TradeMe_BlueCompare.png"
                     alt=""
                     className="z-10 w-20 h-20 absolute"
                   />
@@ -125,10 +148,10 @@ const TradeMeListingItemContainer = () => {
               </button>
               <div className="top-0 right-0 flex justify-end">
                 <button
-                  onClick={handleMagnetClick}
+                  onClick={() => handleMagnetClick(index)}
                   className="className=  top-0 right-0 flex justify-end"
                 >
-                  {selectedMagnetIcon ? (
+                  {selectedMagnetButtons.includes(index) ? (
                     <img
                       src="./images/TradeMe_Magnet.png"
                       alt=""
