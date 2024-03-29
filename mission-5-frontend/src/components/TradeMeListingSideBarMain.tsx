@@ -22,7 +22,9 @@ const TradeMeListingSideBarMain = () => {
     <div>
       <div className="h-full py-10 pl-5 bg-[#f5f3f3]">
         {sideBarListing.map((item) => (
-          <p className="py-5 text-xl text-[#0090E5]">{item}</p>
+          <p className="py-5 text-xl text-[#0090E5] hover:cursor-pointer">
+            {item}
+          </p>
         ))}
       </div>
     </div>

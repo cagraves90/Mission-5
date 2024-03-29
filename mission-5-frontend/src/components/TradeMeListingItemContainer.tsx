@@ -4,6 +4,7 @@ import axios from "axios";
 const TradeMeListingItemContainer = () => {
   const fakeListing = [
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -13,6 +14,7 @@ const TradeMeListingItemContainer = () => {
       startingBidPrice: "$1650",
     },
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -22,6 +24,7 @@ const TradeMeListingItemContainer = () => {
       startingBidPrice: "$1650",
     },
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -31,6 +34,7 @@ const TradeMeListingItemContainer = () => {
       startingBidPrice: "$1650",
     },
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -40,6 +44,7 @@ const TradeMeListingItemContainer = () => {
       startingBidPrice: "$1650",
     },
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -49,6 +54,7 @@ const TradeMeListingItemContainer = () => {
       startingBidPrice: "$1650",
     },
     {
+      listingImage: "./images/TradeMe_PaddleChair.png",
       listingArea: "Auckland",
       listingCloseTime: "Closes Sun 15 Jun 2024",
       listingName: "Paddle Chair",
@@ -101,7 +107,7 @@ const TradeMeListingItemContainer = () => {
         </div>
         <div className="pl-30 grid grid-cols-2">
           {fakeListing.map((item: any, index: any) => (
-            <div className="mx-20 my-20 h-1/2 w-96 bg-white">
+            <div className="mx-20 my-20 w-96 bg-white">
               <button onClick={handleCompareClick}>
                 {selectedCompareIcon ? (
                   <img
@@ -139,7 +145,7 @@ const TradeMeListingItemContainer = () => {
               </div>
               <div className="flex justify-center">
                 <img
-                  src="./images/TradeMe_PaddleChair.png"
+                  src={item.listingImage}
                   alt="Trademe Listing"
                   className="w-80 h-80"
                 />
@@ -169,78 +175,7 @@ const TradeMeListingItemContainer = () => {
               </ul>
             </div>
           ))}
-          {/* <div className="grid-cols-2 h-1/2 w-96 bg-white">
-            <button onClick={handleCompareClick}>
-              {selectedCompareIcon ? (
-                <img
-                  src="./images/TradeMe_BlueCompare.png"
-                  alt=""
-                  className="z-10 w-20 h-20 absolute"
-                />
-              ) : (
-                <img
-                  src="./images/TradeMe_BlueCheck.png"
-                  alt=""
-                  className="z-10 w-20 h-20 absolute"
-                />
-              )}
-            </button>
-            <div className="top-0 right-0 flex justify-end">
-              <button
-                onClick={handleMagnetClick}
-                className="className=  top-0 right-0 flex justify-end"
-              >
-                {selectedMagnetIcon ? (
-                  <img
-                    src="./images/TradeMe_Check.png"
-                    alt=""
-                    className="z-10 w-20 h-20 absolute"
-                  />
-                ) : (
-                  <img
-                    src="./images/TradeMe_Magnet.png"
-                    alt=""
-                    className="z-10 w-20 h-20 absolute"
-                  />
-                )}
-              </button>
-            </div>
-            <div className="flex justify-center">
-              <img
-                src="./images/TradeMe_PaddleChair.png"
-                alt="Trademe Listing"
-                className="w-80 h-80"
-              />
-            </div>
-            <ul>
-              <li>
-                <div className="flex text-sm">
-                  <p className="w-1/2 pl-1 pb-3">Auckland</p>
-                  <div className="w-1/2 flex justify-end pr-1">
-                    <p>Closes Sun 15 Jun 2024</p>
-                  </div>
-                </div>
-                <h2 className="text-lg pb-2">Paddle Chair</h2>
 
-                <p className="pb-7">
-                  Designed by the talented Danish designer Hans. J. Wegner, This
-                  is a handmade classic of comfort and craft. Gracefully
-                  sculpted. A one-piece base construction for strength. Woven
-                  skillfully back and front of durable paper yarn, the Paddle
-                  Chair is remarkably comfortable. An investment that will gain
-                  value over time.
-                </p>
-                <div className="flex">
-                  <div className="w-1/2 pl-1">
-                    <p className="text-2xl">$1650</p>
-                    <p className="text-sm">No Reserve</p>
-                  </div>
-                  <div className="w-1/2 flex flex-col items-end pr-1">
-                    <p className="text-2xl">$2950</p>
-                    <p className="text-sm">Buy Now</p>
-                  </div>
-                </div>
-              </li> */}
           {/* {listing?.map((item: any, index: any) => ( */}
           {/* <li key={index}>
                             <p>{item.listingArea}Auckland</p>
