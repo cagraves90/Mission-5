@@ -151,7 +151,9 @@ const TradeMeCompareCarousel = () => {
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Seller's Rating
               </p>
-              <div className="flex">{item.sellersRating}</div>
+              <div className="flex">
+                <div className="text-3xl">{item.sellersRating}</div>
+              </div>
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Condition
               </p>
@@ -159,11 +161,18 @@ const TradeMeCompareCarousel = () => {
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Shipping
               </p>
-              <div className="h-20">{item.itemShipping}</div>
+              <div className="h-28 flex flex-col">
+                <div>{item.itemShipping}</div>
+                <div>{item.itemShippingTwo}</div>
+                <div>{item.itemShippingThree}</div>
+              </div>
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Payment
               </p>
-              <div className="h-14">{item.itemPaymentOptions}</div>
+              <div className="h-14 flex flex-col">
+                <div>{item.itemPaymentOptions}</div>
+                <div>{item.itemPaymentOptionsTwo}</div>
+              </div>
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Description
               </p>

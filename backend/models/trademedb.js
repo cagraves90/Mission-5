@@ -12,7 +12,10 @@ const trademeSchema = new mongoose.Schema({
   itemCondition: String,
   sellersRating: String,
   itemShipping: String,
+  itemShippingTwo: String,
+  itemShippingThree: String,
   itemPaymentOptions: String,
+  itemPaymentOptionsTwo: String,
 });
 
 // Cars model
