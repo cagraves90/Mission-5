@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import TradeMeCompareModal from "./TradeMeCompareModal";
+// import TradeMeCompareCarousel from "./TradeMeCompareCarousel";
+
+// // -------------------------------------- HeadlessUI Modal ----------------------------------------
+// import { Dialog, Transition } from "@headlessui/react";
 
 const TradeMeListingItemContainer = () => {
   const fakeListing = [
@@ -108,6 +113,16 @@ const TradeMeListingItemContainer = () => {
     });
   }, []);
 
+  // let [isOpen, setIsOpen] = useState(false);
+
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
+
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
+
   return (
     <div className="bg-[#f5f3f3] ml-10 mt-10 static">
       <div className="text-4xl pb-6">WatchList / 6 Listing(s)</div>
@@ -129,9 +144,9 @@ const TradeMeListingItemContainer = () => {
             <div className="w-72 h-72"></div>
           )}
         </div>
-        <div className="pl-30 grid grid-cols-2">
-          {fakeListing.map((item: any, index: any) => (
-            <div className="mx-20 my-5 w-96 bg-white">
+        <div className="pl-30 grid grid-cols-2 ">
+          {listing?.map((item: any, index: any) => (
+            <div className="mx-20 my-5 w-96 bg-white hover:cursor-pointer">
               <button onClick={() => handleCompareClick(index)}>
                 {selectedCompareButtons.includes(index) ? (
                   <img
@@ -187,11 +202,11 @@ const TradeMeListingItemContainer = () => {
                   <p className="pb-7">{item.listingDetails}</p>
                   <div className="flex">
                     <div className="w-1/2 pl-1">
-                      <p className="text-2xl">{item.startingBidPrice}</p>
+                      <p className="text-2xl">${item.startingBidPrice}</p>
                       <p className="text-sm">No Reserve</p>
                     </div>
                     <div className="w-1/2 flex flex-col items-end pr-1">
-                      <p className="text-2xl">{item.buyItNowPrice}</p>
+                      <p className="text-2xl">${item.buyItNowPrice}</p>
                       <p className="text-sm">Buy Now</p>
                     </div>
                   </div>
@@ -199,29 +214,6 @@ const TradeMeListingItemContainer = () => {
               </ul>
             </div>
           ))}
-
-          {/* {listing?.map((item: any, index: any) => ( */}
-          {/* <li key={index}>
-                            <p>{item.listingArea}Auckland</p>
-                            <p>{item.listingCloseTime}Closes Sun 15 Jun 2024</p>
-                            <h2>{item.listingName}Paddle Chair</h2>
-                            <p>{item.buyItNowPrice}$2950</p>
-                            <p>{item.startingBidPrice}$1650</p>
-                            <p>
-                                {item.listingDetails}Designed by the talented Danish designer
-                                Hans. J. Wegner, This is a handmade classic of comfort and
-                                craft. Gracefully sculpted. A one-piece base construction for
-                                strength. Woven skillfully back and front of durable paper yarn,
-                                the Paddle Chair is remarkably comfortable. An investment that
-                                will gain value over time.
-                            </p> */}
-          {/* <p>{item.listingDescription}</p> */}
-          {/* <p>{item.shippingOptions}</p> */}
-          {/* <p>{item.paymentOptions}</p> */}
-          {/* </li> */}
-          {/* ))} */}
-          {/* </ul>
-          </div> */}
         </div>
       </div>
     </div>

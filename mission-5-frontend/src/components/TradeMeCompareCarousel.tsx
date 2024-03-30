@@ -1,4 +1,5 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 // -------------------------------------- Font Awesome ----------------------------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -115,14 +116,22 @@ const FakeListingTwo = [
 ];
 
 const TradeMeCompareCarousel = () => {
+  const [listing, setListing] = useState<any>(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:4000/api/trademe-listing").then((response) => {
+      console.log(response?.data);
+      setListing(response?.data?.data);
+    });
+  }, []);
   return (
     <div>
       {/* --------------------------------- Carousel Portion of the Modal ------------------------------------- */}
       <div className="flex">
-        {FakeListingTwo.map((item) => (
+        {listing?.map((item: any) => (
           <div className="mt-2 mx-2">
-            <img src={item.listingImage} alt="" />
-            <div className="text-xl flex flex-col">
+            <img src={item.listingImage} alt="" className="w-52 h-52" />
+            <div className="text-xl flex flex-col w-48">
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Closing Time
               </p>
@@ -130,11 +139,11 @@ const TradeMeCompareCarousel = () => {
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 No reserve
               </p>
-              {item.startingBidPrice}
+              ${item.startingBidPrice}
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Buy Now
               </p>
-              {item.buyItNowPrice}
+              ${item.buyItNowPrice}
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Location
               </p>
@@ -150,11 +159,11 @@ const TradeMeCompareCarousel = () => {
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Shipping
               </p>
-              {item.itemShipping}
+              <div className="h-20">{item.itemShipping}</div>
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Payment
               </p>
-              {item.itemPaymentOption}
+              <div className="h-14">{item.itemPaymentOptions}</div>
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Description
               </p>
