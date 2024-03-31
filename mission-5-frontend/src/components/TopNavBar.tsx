@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
+
 // ------------------------------------------------------- Menu Button
 import { Dropdown } from "@mui/base/Dropdown";
 import { MenuButton } from "@mui/base/MenuButton";
@@ -10,8 +11,10 @@ import { MenuItem } from "@mui/base/MenuItem";
 // ------------------------------------------------------- Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+
+// ------------------------------------------------------- Import Modal
+import TradeMeCompareModal from "./TradeMeCompareModal";
 
 const TopNavBar = () => {
   const createHandleMenuClick = (menuItem: string) => {
@@ -22,8 +25,8 @@ const TopNavBar = () => {
 
   return (
     <div>
-      <div className="flex flex-row">
-        <div className="flex-none w-1/4 h-1/4 pb-1 pt-10">
+      <div className="flex flex-row bg-[#f5f3f3]">
+        <div className="flex-none w-1/4 h-1/4 pb-1 pt-6">
           <img src="./images/TradeMe_Image.png" alt="Trademe Logo" />
         </div>
         <div className="flex basis-1/2 items-end">
@@ -54,12 +57,15 @@ const TopNavBar = () => {
             <div className="px-2">Username</div>
             <div className="px-2">Login / Register</div>
           </div>
-          <div className="flex p-4">
-            <div className="text-[#3b82f6] px-2 hover:cursor-pointer">
-              <FontAwesomeIcon icon={faScaleUnbalanced} className="pr-2" />
-              Compare Listings
-            </div>
-            <div className="text-[#943900] px-2 hover:cursor-pointer">
+
+          <div className="flex pr-5">
+            <TradeMeCompareModal />
+            <div className="flex text-[#943900] px-2 hover:cursor-pointer">
+              <img
+                className="w-6 h-6 mr-1"
+                src="./images/TradeMeMagnetIcon.png"
+                alt="Magnet Icon"
+              />
               Watchlist
             </div>
             {/* ------------------------------------ Menu Button ------------------------------------------------------- */}
@@ -94,11 +100,10 @@ const TopNavBar = () => {
                 </Menu>
               </Dropdown>
             </div>
-
-            {/* // ---------------------------- Menu Button -------------------------------------------------------  */}
           </div>
         </div>
       </div>
+
       {/* -------------------------------------- Search bar ------------------------------------------------------- */}
       <div className="bg-yellow-400 h-19 flex justify-center">
         <div className="flex basis-1/3 h-14 py-2 relative mx-auto text-gray-600">
@@ -116,6 +121,24 @@ const TopNavBar = () => {
           </div>
         </div>
         <div className="flex items-start basis-1/3 "></div>
+      </div>
+      {/* ------------------------------------- Links below the searchbar ----------------------------------  */}
+      <div className="flex hover:cursor-pointer">
+        <div className="flex justify-center w-1/5 text-[#d93a3f] border-t-4 border-[#d93a3f] hover:bg-[#f5f3f3]">
+          Marketplace
+        </div>
+        <div className="flex justify-center w-1/5 text-[#f3632d] border-t-4 border-[#f3632d] hover:bg-[#f5f3f3]">
+          Job
+        </div>
+        <div className="flex justify-center w-1/5 text-[#5f6f88] border-t-4 border-[#5f6f88] hover:bg-[#f5f3f3]">
+          Motor
+        </div>
+        <div className="flex justify-center w-1/5 text-[#29a754] border-t-4 border-[#29a754] hover:bg-[#f5f3f3]">
+          Property
+        </div>
+        <div className="flex justify-center w-1/5 text-[#555555] border-t-4 border-[#555555] hover:bg-[#f5f3f3]">
+          Services
+        </div>
       </div>
     </div>
   );

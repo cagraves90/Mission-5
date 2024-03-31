@@ -2,14 +2,20 @@ const mongoose = require("mongoose");
 
 // Cars schema
 const trademeSchema = new mongoose.Schema({
+  listingImage: String,
+  listingArea: String,
+  listingCloseTime: String,
   listingName: String,
+  listingDetails: String,
   buyItNowPrice: Number,
   startingBidPrice: Number,
-  imageURL: String,
-  listingDetails: String,
-  listingDescription: String,
-  shippingOptions: String,
-  paymentOptions: String,
+  itemCondition: String,
+  sellersRating: String,
+  itemShipping: String,
+  itemShippingTwo: String,
+  itemShippingThree: String,
+  itemPaymentOptions: String,
+  itemPaymentOptionsTwo: String,
 });
 
 // Cars model
