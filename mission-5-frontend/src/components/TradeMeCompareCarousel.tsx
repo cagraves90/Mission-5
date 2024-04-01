@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -128,7 +129,7 @@ const TradeMeCompareCarousel = () => {
     <div>
       {/* --------------------------------- Carousel Portion of the Modal ------------------------------------- */}
       <div className="flex">
-        {listing?.map((item: any) => (
+        {FakeListingTwo?.map((item: any) => (
           <div className="mt-2 mx-2">
             <img src={item.listingImage} alt="" className="w-52 h-52" />
             <div className="text-xl flex flex-col w-48">

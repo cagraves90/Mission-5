@@ -1,3 +1,4 @@
+import React from "react";
 import { Fragment, useState } from "react";
 import TradeMeCompareCarousel from "./TradeMeCompareCarousel";
 
@@ -59,15 +60,6 @@ const TradeMeCompareModal = () => {
                       leaveTo="opacity-0 scale-95"
                     >
                       <Dialog.Panel className="w-full max-w-7xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                        <div className="mt-2 flex justify-end">
-                          {/* <button
-                            type="button"
-                            className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 p-4 font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                            onClick={closeModal}
-                          >
-                            <FontAwesomeIcon icon={faXmark} />
-                          </button> */}
-                        </div>
                         {/* ------------------------ Carousel ----------------------------- */}
                         <TradeMeCompareCarousel />
                         {/* ------------------------ Carousel ----------------------------- */}
