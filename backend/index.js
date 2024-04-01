@@ -4,6 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const TradeMe = require("./models/trademedb");
 
+const http = require("http");
+const server = http.createServer(app);
+module.exports = server;
+
 /* ============== Middleware ================== */
 app.use(cors());
 app.use(express.json());
@@ -79,10 +83,12 @@ app.all("*", (req, res) => {
 // ---------------------------------------------- Server Connection ----------------------------------------------
 const port = 4000;
 
-app
+const backendServerPort = app
   .listen(port, () => {
     console.log(`The server is listening at http://localhost:${port}`);
   })
   .on("error", (error) => {
     console.log(error);
   });
+
+module.exports = backendServerPort;
