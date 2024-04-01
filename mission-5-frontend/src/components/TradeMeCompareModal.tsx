@@ -25,8 +25,8 @@ const TradeMeCompareModal = () => {
   return (
     <div>
       <div>
-        <div className="flex p-4">
-          <div className="text-[#3b82f6] px-2 hover:cursor-pointer">
+        <div className="flex p-2">
+          <div className="text-[#3b82f6] pl-2 hover:cursor-pointer text-lg">
             <div className=" flex items-center justify-center">
               {/* ---------------------------------- MODAL PORTION ------------------------------------ */}
               <button type="button" onClick={openModal}>
