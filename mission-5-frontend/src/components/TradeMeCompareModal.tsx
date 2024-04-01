@@ -7,7 +7,6 @@ import { Dialog, Transition } from "@headlessui/react";
 // -------------------------------------- Font Awesome ----------------------------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
-// import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 // -------------------------------------- HeadlessUI Modal ----------------------------------------
 

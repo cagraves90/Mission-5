@@ -19,14 +19,21 @@ function TradeMeNewCompareFunctionModal() {
 
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col items-center justify-center">
         <button
           type="button"
           onClick={openModal}
-          className="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
+          className="flex flex-col items-center rounded-md bg-[#ffb00b] px-4 py-2 text-sm font-medium text-white hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
         >
           New Function!
         </button>
+        <div
+          className="w-0 h-0 
+  border-l-[10px] border-l-transparent
+  border-t-[15px] border-t-[#ffb00b]
+  border-r-[10px] border-r-transparent
+ "
+        ></div>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -58,7 +65,7 @@ function TradeMeNewCompareFunctionModal() {
                   <div className="mt-4 flex justify-end">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent  px-4 py-2 text-sm font-medium text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
                       <FontAwesomeIcon icon={faX} />

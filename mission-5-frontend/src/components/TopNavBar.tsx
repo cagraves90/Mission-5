@@ -41,14 +41,16 @@ const TopNavBar = () => {
           </Breadcrumbs>
         </div>
         <div className="flex flex-col w-1/2 items-end justify-end">
-          <div className="flex p-4 text-lg">
+          <div className="flex px-4 text-lg">
+            <div className="px-8">
+              <TradeMeNewCompareFunctionModal />
+            </div>
             <div className="px-2">Kia Ora!</div>
             <div className="px-2">Username</div>
             <div className="px-2">Login / Register</div>
           </div>
 
           <div className="flex pr-5">
-            <TradeMeNewCompareFunctionModal />
             <TradeMeCompareModal />
             <div className="flex text-[#943900] text-lg px-2 hover:cursor-pointer pt-2">
               <img
