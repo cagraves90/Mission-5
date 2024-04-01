@@ -113,16 +113,6 @@ const TradeMeListingItemContainer = () => {
     });
   }, []);
 
-  // let [isOpen, setIsOpen] = useState(false);
-
-  // function closeModal() {
-  //   setIsOpen(false);
-  // }
-
-  // function openModal() {
-  //   setIsOpen(true);
-  // }
-
   return (
     <div className="bg-[#f5f3f3] ml-10 mt-10 static">
       <div className="text-4xl pb-6">WatchList / 6 Listing(s)</div>

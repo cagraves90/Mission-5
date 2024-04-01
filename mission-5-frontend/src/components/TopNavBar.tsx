@@ -15,6 +15,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 // ------------------------------------------------------- Import Modal
 import TradeMeCompareModal from "./TradeMeCompareModal";
+import TradeMeNewCompareFunctionModal from "./TradeMeNewCompareFunctionModal";
 
 const TopNavBar = () => {
   const createHandleMenuClick = (menuItem: string) => {
@@ -26,33 +27,24 @@ const TopNavBar = () => {
   return (
     <div>
       <div className="flex flex-row bg-[#f5f3f3]">
-        <div className="flex-none w-1/4 h-1/4 pb-1 pt-6">
+        <div className="flex-none w-1/6 h-1/4 pb-1 pt-6">
           <img src="./images/TradeMe_Image.png" alt="Trademe Logo" />
         </div>
-        <div className="flex basis-1/2 items-end">
+        <div className="flex w-1/2 items-end pl-10 pb-1">
           <Breadcrumbs aria-label="breadcrumb">
             <Link underline="hover" color="text.primary" href="/">
-              Home
+              <p className="text-lg">Home</p>
             </Link>
-            <Link
-              underline="hover"
-              color="text.primary"
-              href="/trademe/furniture"
-            >
-              Furniture
-            </Link>
-            <Link
-              underline="hover"
-              color="text.primary"
-              href="/trademe/furniture"
-            >
-              Chair
-            </Link>
-            <Typography color="text.primary">Lounge Chair</Typography>
+            <Typography color="text.primary">
+              <p className="text-lg">Watchlist</p>
+            </Typography>
           </Breadcrumbs>
         </div>
-        <div className="flex flex-col basis-1/4 items-end justify-end">
-          <div className="flex p-4">
+        <div className="flex flex-col w-1/2 items-end justify-end">
+          <div className="flex px-4 text-lg">
+            <div className="px-8">
+              <TradeMeNewCompareFunctionModal />
+            </div>
             <div className="px-2">Kia Ora!</div>
             <div className="px-2">Username</div>
             <div className="px-2">Login / Register</div>
@@ -60,7 +52,7 @@ const TopNavBar = () => {
 
           <div className="flex pr-5">
             <TradeMeCompareModal />
-            <div className="flex text-[#943900] px-2 hover:cursor-pointer">
+            <div className="flex text-[#943900] text-lg px-2 hover:cursor-pointer pt-2">
               <img
                 className="w-6 h-6 mr-1"
                 src="./images/TradeMeMagnetIcon.png"
@@ -69,7 +61,7 @@ const TopNavBar = () => {
               Watchlist
             </div>
             {/* ------------------------------------ Menu Button ------------------------------------------------------- */}
-            <div className="pr-2">
+            <div className="pr-2 pt-2 text-lg">
               <Dropdown>
                 <MenuButton>
                   <FontAwesomeIcon icon={faCaretDown} className="px-1" />
@@ -81,19 +73,19 @@ const TopNavBar = () => {
                 >
                   <MenuItem
                     onClick={createHandleMenuClick("Profile")}
-                    className="hover:bg-[#3b82f6]"
+                    className="hover:bg-[#f5f3f3] text-lg"
                   >
                     Profile
                   </MenuItem>
                   <MenuItem
                     onClick={createHandleMenuClick("My Watchlist")}
-                    className="hover:bg-[#3b82f6]"
+                    className="hover:bg-[#f5f3f3] text-lg"
                   >
                     My Watchlist
                   </MenuItem>
                   <MenuItem
                     onClick={createHandleMenuClick("Log out")}
-                    className="hover:bg-[#3b82f6]"
+                    className="hover:bg-[#f5f3f3] text-lg"
                   >
                     Log out
                   </MenuItem>
