@@ -178,12 +178,14 @@ const TradeMeNewCompareFunctionInfo = () => {
           sx={{
             display: "flex",
             alignItems: "center",
-            height: 50,
+            height: 90,
             pl: 2,
             bgcolor: "background.default",
           }}
         >
-          <Typography>{images[activeStep].label}</Typography>
+          <Typography sx={{ fontSize: 20 }}>
+            {images[activeStep].label}
+          </Typography>
         </Paper>
         <Box
           sx={{
@@ -201,8 +203,9 @@ const TradeMeNewCompareFunctionInfo = () => {
             height: 20,
             maxWidth: 400,
             width: "100%",
-            p: 1,
-            pb: 10,
+            px: 1,
+            pb: 15,
+            fontSize: 18,
             display: "flex",
             justifyContent: "center",
           }}
