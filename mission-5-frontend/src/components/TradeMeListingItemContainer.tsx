@@ -114,16 +114,22 @@ const TradeMeListingItemContainer = () => {
   }, []);
 
   return (
-    <div className="bg-[#f5f3f3] ml-10 mt-10 static">
+    <div className="bg-[#f5f3f3] ml-10 mt-10 relative">
       <div className="text-4xl pb-6">WatchList / 6 Listing(s)</div>
       <div className="flex">
-        <div className="flex flex-col mt-96">
+        <div className="flex flex-col mt-20 fixed top-100">
           {selectedCompareButtons.length > 0 ? (
             <div>
-              <p className="text-lg">
-                You have {selectedCompareButtons.length} item/s selected to
-                compare!
-              </p>
+              <div className="text-lg text-white hover:cursor-pointer">
+                <p className="bg-[#555555] rounded-2xl py-1 px-4 w-36">
+                  Click here to
+                </p>
+                <div className="w-0 h-0 mb-1 ml-10 border-l-[8px] border-l-transparent border-t-[15px] border-t-[#555555] border-r-[8px] border-r-transparent "></div>
+                <p className="bg-[#555555] rounded-2xl py-1 px-2 w-52">
+                  Compare your {selectedCompareButtons.length} Listings
+                </p>
+                <div className="w-0 h-0 ml-16 border-l-[8px] border-l-transparent border-t-[15px] border-t-[#555555] border-r-[8px] border-r-transparent "></div>
+              </div>
               <img
                 src="./images/TradeMeKiwiCompare.png"
                 alt=""
@@ -131,27 +137,29 @@ const TradeMeListingItemContainer = () => {
               />
             </div>
           ) : (
-            <div className="w-72 h-72"></div>
+            <div className="w-52 h-40"></div>
           )}
         </div>
-        <div className="pl-30 grid grid-cols-2 ">
-          {listing?.map((item: any, index: any) => (
+        <div className="w-5/6 ml-48 grid grid-cols-2 2xl:grid-cols-4">
+          {fakeListing?.map((item: any, index: any) => (
             <div className="mx-20 my-5 w-96 bg-white hover:cursor-pointer">
-              <button onClick={() => handleCompareClick(index)}>
-                {selectedCompareButtons.includes(index) ? (
-                  <img
-                    src="./images/TradeMe_BlueCheck.png"
-                    alt=""
-                    className="z-10 w-20 h-20 absolute"
-                  />
-                ) : (
-                  <img
-                    src="./images/TradeMe_BlueCompare.png"
-                    alt=""
-                    className="z-10 w-20 h-20 absolute"
-                  />
-                )}
-              </button>
+              <div className="mt-0 bg-[#f5f3f3]">
+                <button onClick={() => handleCompareClick(index)}>
+                  {selectedCompareButtons.includes(index) ? (
+                    <img
+                      src="./images/TradeMe_BlueCheck.png"
+                      alt=""
+                      className="z-10 w-20 h-20 absolute"
+                    />
+                  ) : (
+                    <img
+                      src="./images/TradeMe_BlueCompare.png"
+                      alt=""
+                      className="z-10 w-20 h-20 absolute"
+                    />
+                  )}
+                </button>
+              </div>
               <div className="top-0 right-0 flex justify-end">
                 <button
                   onClick={() => handleMagnetClick(index)}

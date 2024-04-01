@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Encode Sans', sans-serif;
 }
 
