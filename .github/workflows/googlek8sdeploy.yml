@@ -69,7 +69,7 @@ jobs:
 
       - name: Build Docker image
      
-        run: docker build -t "${GAR_LOCATION}mission5-backend:latest" .
+        run: docker build -t us-central1-docker.pkg.dev/advance-nuance-415821/mission-5/mission5-backend:latest .
 
       - name: Push Docker image to Artifact Registry
         run: docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/mission5-backend:latest
