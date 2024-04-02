@@ -67,7 +67,7 @@ jobs:
 
       - name: Deploy to GKE
         run: |-
-          gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.GKE_ZONE }}
+          gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.REGION }}
           kubectl apply -f your-kubernetes-manifest.yaml
 
 
