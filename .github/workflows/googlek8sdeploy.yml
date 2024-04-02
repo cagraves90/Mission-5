@@ -25,7 +25,9 @@ env:
   REGION: us-central1
   GAR_LOCATION: us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/
   GKE_CLUSTER: mission-5-cluster
-  GKE_ZONE: us-central1-c 
+  GKE_ZONE: us-central1-c
+  IMAGE_NAME: mission5-backend
+  TAG: latest
 
 # env:
 #   PROJECT_ID: ${{ secrets.GOOGLE_PROJECT }}
@@ -65,10 +67,16 @@ jobs:
         run: |-
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
+      - name: Build Docker image
+        run: docker build -t ${{ env.GAR_LOCATION }}/mission5-backend:latest .
+
+      - name: Push Docker image to Artifact Registry
+        run: docker push ${{ env.GAR_LOCATION }}/mission5-backend:latest
+
       - name: Deploy to GKE
         run: |-
           gcloud container clusters get-credentials ${{ env.GKE_CLUSTER }} --zone ${{ env.REGION }}
-          kubectl apply -f your-kubernetes-manifest.yaml
+       
 
 
           
