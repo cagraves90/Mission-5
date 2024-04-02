@@ -23,7 +23,7 @@ on:
 env:
   PROJECT_ID: $ {{ secrets.GOOGLE_PROJECT }}
   REGION: us-central1
-  GAR_LOCATION: us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/
+  GAR_LOCATION: us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5
   GKE_CLUSTER: mission-5-cluster
   GKE_ZONE: us-central1-c
   IMAGE_NAME: mission5-backend
