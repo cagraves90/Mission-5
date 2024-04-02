@@ -45,6 +45,7 @@ jobs:
         env:
           GOOGLE_PROJECT: $ {{ secrets.GOOGLE_PROJECT }}
         run: |
+          cd backend
           gcloud auth configure-docker us-central1-docker.pkg.dev
           docker buildx build -t us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/mission5:latest .
           docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/mission5:latest
