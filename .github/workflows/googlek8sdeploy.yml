@@ -1,4 +1,6 @@
-name: Deploy to Google Cloud
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+name: Unit test and CI/CD to Google Kubernetes 
 
 on:
   push:
@@ -14,11 +16,28 @@ env:
   GKE_ZONE: us-central1-c
   IMAGE_NAME: mission5-backend
   TAG: latest
-  
+
 jobs:
   # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-    
+
   # This workflow contains a two jobs, one called "build_test" and a second called "deploy"
+  build_test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Steps represent a sequence of tasks that will be executed as part of the job
+      - uses: actions/checkout@v4
+
+      - name: Set up Backend with Node.js and run tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+      - run: |
+          cd backend
+          npm install
+          npm test
+    
   deploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -44,13 +63,21 @@ jobs:
         run: |-
           gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev --quiet
 
-      - name: Build Docker image
+      - name: Build Docker image backend
         run: |
           cd backend 
           docker build -t us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-backend:latest .
-
-      - name: Push Docker image to Artifact Registry
-        run: docker push us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-backend:latest
+          
+      - name: Push Docker image backend to Artifact Registry
+        run: docker push us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-backend:latest 
+        
+      - name: Build Docker image frontend
+        run: |
+          cd mission-5-frontend 
+          docker build -t us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-frontend:latest .
+          
+      - name: Push Docker image frontend to Artifact Registry
+        run: docker push us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-frontend:latest 
 
       - name: Deploy to GKE
         run: |-
