@@ -73,7 +73,7 @@ jobs:
           docker build -t us-central1-docker.pkg.dev/advance-nuance-415821/mission-5/mission5-backend:latest .
 
       - name: Push Docker image to Artifact Registry
-        run: docker push us-central1-docker.pkg.dev/$GOOGLE_PROJECT/mission-5/mission5-backend:latest
+        run: docker push us-central1-docker.pkg.dev/advance-nuance-415821/mission-5/mission5-backend:latest
 
       - name: Deploy to GKE
         run: |-
