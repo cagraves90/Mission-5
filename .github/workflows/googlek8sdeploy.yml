@@ -70,6 +70,14 @@ jobs:
           
       - name: Push Docker image backend to Artifact Registry
         run: docker push us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mission5-backend:latest 
+
+      - name: Build Docker image db
+        run: |
+          cd backend 
+          docker build -t us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mongo:latest .
+          
+      - name: Push Docker image db to Artifact Registry
+        run: docker push us-central1-docker.pkg.dev/${{ secrets.GOOGLE_PROJECT }}/mission-5/mongo:latest
         
       - name: Build Docker image frontend
         run: |
