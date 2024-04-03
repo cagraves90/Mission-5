@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import "react-multi-carousel/lib/styles.css";
 
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";

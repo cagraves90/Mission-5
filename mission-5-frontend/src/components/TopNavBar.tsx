@@ -12,9 +12,10 @@ import { MenuItem } from "@mui/base/MenuItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
 
 // ------------------------------------------------------- Import Modal
-import TradeMeCompareModal from "./TradeMeCompareModal";
+// import TradeMeCompareModal from "./TradeMeCompareModal";
 import TradeMeNewCompareFunctionModal from "./TradeMeNewCompareFunctionModal";
 
 const TopNavBar = () => {
@@ -51,8 +52,14 @@ const TopNavBar = () => {
           </div>
 
           <div className="flex pr-5">
-            <TradeMeCompareModal />
-            <div className="flex text-[#943900] text-lg px-2 hover:cursor-pointer pt-2">
+            <button
+              type="button"
+              className="text-[#3b82f6] pl-2 hover:cursor-pointer text-lg"
+            >
+              <FontAwesomeIcon icon={faScaleUnbalanced} className="pr-2" />
+              Compare Listings
+            </button>
+            <div className="flex text-[#943900] text-lg px-2 hover:cursor-pointer pt-2 pb-1">
               <img
                 className="w-6 h-6 mr-1"
                 src="./images/TradeMeMagnetIcon.png"
