@@ -5,13 +5,12 @@ import TradeMeCompareCarousel from "./TradeMeCompareCarousel";
 // -------------------------------------- HeadlessUI Modal ----------------------------------------
 import { Dialog, Transition } from "@headlessui/react";
 
-// -------------------------------------- Font Awesome ----------------------------------------
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faScaleUnbalanced } from "@fortawesome/free-solid-svg-icons";
-
 // -------------------------------------- HeadlessUI Modal ----------------------------------------
+interface TradeMeCompareModalProps {
+  data: any;
+}
 
-const TradeMeCompareModal = () => {
+const TradeMeCompareModal: React.FC<TradeMeCompareModalProps> = ({ data }) => {
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -26,12 +25,11 @@ const TradeMeCompareModal = () => {
     <div>
       <div>
         <div className="flex p-2">
-          <div className="text-[#3b82f6] pl-2 hover:cursor-pointer text-lg">
-            <div className=" flex items-center justify-center">
+          <div className="text-white pl-2 hover:cursor-pointer text-lg">
+            <div className=" flex w-24">
               {/* ---------------------------------- MODAL PORTION ------------------------------------ */}
               <button type="button" onClick={openModal}>
-                <FontAwesomeIcon icon={faScaleUnbalanced} className="pr-2" />
-                Compare Listings
+                Click here to
               </button>
             </div>
             <Transition appear show={isOpen} as={Fragment}>
@@ -61,7 +59,7 @@ const TradeMeCompareModal = () => {
                     >
                       <Dialog.Panel className="w-full max-w-7xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                         {/* ------------------------ Carousel ----------------------------- */}
-                        <TradeMeCompareCarousel />
+                        <TradeMeCompareCarousel data={data} />
                         {/* ------------------------ Carousel ----------------------------- */}
                       </Dialog.Panel>
                     </Transition.Child>

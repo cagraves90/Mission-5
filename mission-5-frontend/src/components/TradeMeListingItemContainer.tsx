@@ -6,7 +6,7 @@ import TradeMeCompareModal from "./TradeMeCompareModal";
 // // -------------------------------------- HeadlessUI Modal ----------------------------------------
 // import { Dialog, Transition } from "@headlessui/react";
 
-const TradeMeListingItemContainer = () => {
+const TradeMeListingItemContainer: React.FC = () => {
   const fakeListing = [
     {
       listingImage: "./images/TradeMe_PaddleChair.png",
@@ -80,6 +80,10 @@ const TradeMeListingItemContainer = () => {
     []
   );
 
+  const filteredListing = fakeListing.filter((item, index) =>
+    selectedCompareButtons.includes(index)
+  );
+
   const handleCompareClick = (index: number) => {
     setSelectedCompareButtons((prevState) => {
       // If the index is already in the array, remove it
@@ -125,8 +129,7 @@ const TradeMeListingItemContainer = () => {
                   {/* -------------------------- MODAL PORTION OF BUTTON ------------------------------ */}
                   <button type="button">
                     <p className="bg-[#555555] rounded-2xl py-1 px-4 w-36">
-                      Click here to
-                      <TradeMeCompareModal />
+                      <TradeMeCompareModal data={filteredListing} />
                     </p>
                   </button>
                   <div className="w-0 h-0 mb-1 ml-10 border-l-[8px] border-l-transparent border-t-[15px] border-t-[#555555] border-r-[8px] border-r-transparent "></div>
@@ -146,7 +149,7 @@ const TradeMeListingItemContainer = () => {
             )}
           </div>
           <div className="w-5/6 ml-48 grid grid-cols-2 2xl:grid-cols-4">
-            {fakeListing?.map((item: any, index: any) => (
+            {listing?.map((item: any, index: any) => (
               <div className="mx-20 my-5 w-96 bg-white hover:cursor-pointer">
                 <div className="mt-0 bg-[#f5f3f3]">
                   <button onClick={() => handleCompareClick(index)}>
@@ -201,8 +204,9 @@ const TradeMeListingItemContainer = () => {
                       </div>
                     </div>
                     <h2 className="text-lg pb-2">{item.listingName}</h2>
-
-                    <p className="pb-7">{item.listingDetails}</p>
+                    <div className="h-48">
+                      <p className="pb-7">{item.listingDetails}</p>
+                    </div>
                     <div className="flex">
                       <div className="w-1/2 pl-1">
                         <p className="text-2xl">${item.startingBidPrice}</p>
@@ -211,6 +215,15 @@ const TradeMeListingItemContainer = () => {
                       <div className="w-1/2 flex flex-col items-end pr-1">
                         <p className="text-2xl">${item.buyItNowPrice}</p>
                         <p className="text-sm">Buy Now</p>
+                      </div>
+                      <div className="hidden">
+                        {item.sellersRating}
+                        {item.itemCondition}
+                        {item.itemShipping}
+                        {item.itemShippingTwo}
+                        {item.itemShippingThree}
+                        {item.itemPaymentOptions}
+                        {item.itemPaymentOptionsTwo}
                       </div>
                     </div>
                   </li>
