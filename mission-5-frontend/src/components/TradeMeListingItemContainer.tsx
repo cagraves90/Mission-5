@@ -3,74 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TradeMeCompareModal from "./TradeMeCompareModal";
 
-// // -------------------------------------- HeadlessUI Modal ----------------------------------------
-// import { Dialog, Transition } from "@headlessui/react";
-
 const TradeMeListingItemContainer: React.FC = () => {
-  const fakeListing = [
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-    {
-      listingImage: "./images/TradeMe_PaddleChair.png",
-      listingArea: "Auckland",
-      listingCloseTime: "Closes Sun 15 Jun 2024",
-      listingName: "Paddle Chair",
-      listingDetails:
-        "Designed by the talented Danish designer Hans. J. Wegner, This is a handmade classic of comfort and craft. Gracefully sculpted. A one-piece base construction for strength. Woven skillfully back and front of durable paper yarn, the Paddle Chair is remarkably comfortable. An investment that will gain value over time.",
-      buyItNowPrice: "$2950",
-      startingBidPrice: "$1650",
-    },
-  ];
-
-  const [listing, setListing] = useState<any>(null);
+  const [listing, setListing] = useState<any[]>([]);
 
   const [selectedCompareButtons, setSelectedCompareButtons] = useState<any[]>(
     []
@@ -80,7 +14,7 @@ const TradeMeListingItemContainer: React.FC = () => {
     []
   );
 
-  const filteredListing = fakeListing.filter((item, index) =>
+  const filteredListing = listing.filter((item: any, index: number) =>
     selectedCompareButtons.includes(index)
   );
 
@@ -127,13 +61,14 @@ const TradeMeListingItemContainer: React.FC = () => {
               <div>
                 <div className="text-lg text-white hover:cursor-pointer">
                   {/* -------------------------- MODAL PORTION OF BUTTON ------------------------------ */}
-                  <button type="button">
-                    <p className="bg-[#555555] rounded-2xl py-1 px-4 w-36">
-                      <TradeMeCompareModal data={filteredListing} />
-                    </p>
+                  <button
+                    type="button"
+                    className="bg-[#555555] rounded-2xl w-32"
+                  >
+                    <TradeMeCompareModal data={filteredListing} />
                   </button>
                   <div className="w-0 h-0 mb-1 ml-10 border-l-[8px] border-l-transparent border-t-[15px] border-t-[#555555] border-r-[8px] border-r-transparent "></div>
-                  <p className="bg-[#555555] rounded-2xl py-1 px-2 w-52">
+                  <p className="bg-[#555555] rounded-2xl py-2 px-2 w-52">
                     Compare your {selectedCompareButtons.length} Listings
                   </p>
                   <div className="w-0 h-0 ml-16 border-l-[8px] border-l-transparent border-t-[15px] border-t-[#555555] border-r-[8px] border-r-transparent "></div>

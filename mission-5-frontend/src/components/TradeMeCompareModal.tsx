@@ -25,13 +25,17 @@ const TradeMeCompareModal: React.FC<TradeMeCompareModalProps> = ({ data }) => {
     <div>
       <div>
         <div className="flex p-2">
-          <div className="text-white pl-2 hover:cursor-pointer text-lg">
-            <div className=" flex w-24">
-              {/* ---------------------------------- MODAL PORTION ------------------------------------ */}
-              <button type="button" onClick={openModal}>
+          <div className="text-white pl-2 text-lg">
+            <div className="">
+              <button
+                type="button"
+                onClick={openModal}
+                className="flex w-28 hover:cursor-pointer"
+              >
                 Click here to
               </button>
             </div>
+            {/* ---------------------------------- MODAL PORTION ------------------------------------ */}
             <Transition appear show={isOpen} as={Fragment}>
               <Dialog as="div" className="relative z-10" onClose={closeModal}>
                 <Transition.Child
@@ -57,7 +61,7 @@ const TradeMeCompareModal: React.FC<TradeMeCompareModalProps> = ({ data }) => {
                       leaveFrom="opacity-100 scale-100"
                       leaveTo="opacity-0 scale-95"
                     >
-                      <Dialog.Panel className="w-full max-w-7xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                      <Dialog.Panel className="w-auto transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                         {/* ------------------------ Carousel ----------------------------- */}
                         <TradeMeCompareCarousel data={data} />
                         {/* ------------------------ Carousel ----------------------------- */}
