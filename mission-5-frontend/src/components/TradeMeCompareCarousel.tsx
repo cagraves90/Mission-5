@@ -24,11 +24,11 @@ const TradeMeCompareCarousel: React.FC<TradeMeCompareCarouselProps> = ({
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 No reserve
               </p>
-              {item.startingBidPrice}
+              ${item.startingBidPrice}
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Buy Now
               </p>
-              {item.buyItNowPrice}
+              ${item.buyItNowPrice}
               <p className="flex justify-center bg-[#ffb00b] rounded-md my-1">
                 Location
               </p>

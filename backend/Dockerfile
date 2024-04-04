@@ -8,10 +8,6 @@ RUN npm install -g nodemon
 
 WORKDIR /usr/src/app
 
-# Copy dependency definitions
-# COPY package.json /usr/src/app
-# COPY package-lock.json /usr/src/app
-
 COPY . . /usr/src/app/
 
 RUN npm install

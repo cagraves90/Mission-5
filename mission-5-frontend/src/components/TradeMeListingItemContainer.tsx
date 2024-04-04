@@ -86,19 +86,19 @@ const TradeMeListingItemContainer: React.FC = () => {
           <div className="w-5/6 ml-48 grid grid-cols-2 2xl:grid-cols-4">
             {listing?.map((item: any, index: any) => (
               <div className="mx-20 my-5 w-96 bg-white hover:cursor-pointer">
-                <div className="mt-0 bg-[#f5f3f3]">
+                <div className="top-0 bg-[#f5f3f3]">
                   <button onClick={() => handleCompareClick(index)}>
                     {selectedCompareButtons.includes(index) ? (
                       <img
                         src="./images/TradeMe_BlueCheck.png"
                         alt=""
-                        className="z-10 w-20 h-20 absolute"
+                        className="mt-1 z-10 w-20 h-20 absolute"
                       />
                     ) : (
                       <img
                         src="./images/TradeMe_BlueCompare.png"
                         alt=""
-                        className="z-10 w-20 h-20 absolute"
+                        className="mt-1 z-10 w-20 h-20 absolute"
                       />
                     )}
                   </button>
